@@ -1,3 +1,4 @@
+
 const jobs = [
   {
     image: {
@@ -65,4 +66,42 @@ const jobs = [
     location: "Wichita, KS (Remote)",
     postDate: "6 days ago",
   },
-];
+ 
+]; 
+/** 
+console.log(jobs[0]);
+console.log('2' + 3);
+const firstjob = jobs[0];
+
+console.log(`The ${firstjob.company} is hiring a ${firstjob.salary}`);
+*/
+
+function calculateAverageSalary(jobs) {
+  let totalSalary = 0;
+  for (let i = 0; i < jobs.length; i++) {
+    let salaryRange = jobs[i].salary.split(" - "); // Split the salary range into an array
+    let minSalary = parseInt(salaryRange[0].replace(/\D/g, "")); // Get the minimum salary as a number
+    let maxSalary = parseInt(salaryRange[1].replace(/\D/g, "")); // Get the maximum salary as a number
+    let averageSalary = (minSalary + maxSalary) / 2; // Calculate the average salary
+    totalSalary += averageSalary; // Add it to the total
+  }
+  return totalSalary / jobs.length; // Return the average salary across all jobs
+}
+
+console.log(`Average salary: ${calculateAverageSalary(jobs)}k`);
+
+let globalVar = "I am global!"; // This variable is globally scoped
+
+function checkScope() {
+  let localVar = "I am local!"; // This variable is locally scoped
+  console.log(globalVar); // We can access the global variable here
+  console.log(localVar); // And the local variable is also accessible
+}
+
+checkScope(); // Call the function
+console.log(globalVar); // We can access the global variable here
+//console.log(localVar); // But we can't access the local variable here; it will throw an error
+
+jobs.forEach(job => console.log(job.title));
+const jobTitles = jobs.map(job => job.title);
+console.log(jobTitles);
