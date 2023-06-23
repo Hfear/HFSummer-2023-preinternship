@@ -11,7 +11,6 @@ export default function JobCard({ job }) {
     postDate,
   } = job;
 
-
   return (
     <div className="j-desc">
       <img className="j-desc__company-image" src={src} alt={alt} />
