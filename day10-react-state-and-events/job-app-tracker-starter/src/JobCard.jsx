@@ -11,6 +11,7 @@ function JobCard({ job }) {
     postDate,
   } = job;
 
+
   return (
     <div className="flex items-start gap-4 my-13">
       <img src={src} alt={alt} />
@@ -28,17 +29,17 @@ function JobCard({ job }) {
 }
 
 JobCard.propTypes = {
-  job: {
-    image: {
+  job: PropTypes.shape({
+    image: PropTypes.shape({
       src: PropTypes.string,
       alt: PropTypes.string,
-    },
+    }),
     company: PropTypes.string,
     title: PropTypes.string,
     salary: PropTypes.string,
     location: PropTypes.string,
     postDate: PropTypes.string,
-  },
+  }),
 };
 
 export default JobCard;
